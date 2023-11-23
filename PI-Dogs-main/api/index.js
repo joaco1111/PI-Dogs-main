@@ -19,6 +19,8 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
+require('dotenv').config();
+const apiKey = process.env.API_KEY;
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
