@@ -1,28 +1,17 @@
-// routes.js
-const express = require('express');
-const Dog = require('../models/Dog');
-const Temperament = require('../models/Temperament')
+const { Router } = require('express');
+require('dotenv').config();
 
-const router = express.Router();
+// Importar todos los routers;
+const dogs = require('./routesDog');
+const temperaments = require('./routesTemperaments');
+const breeds = require('./routesBreeds');
 
-router.get('/dogs', async (req, res) => {
-  // Implementar lógica para obtener todas las razas de perros
-});
+const router = Router();
 
-router.get('/dogs/:idRaza', async (req, res) => {
-  // Implementar lógica para obtener el detalle de una raza específica
-});
-
-router.get('/dogs/name', async (req, res) => {
-  // Implementar lógica para buscar razas por nombre
-});
-
-router.post('/dogs', async (req, res) => {
-  // Implementar lógica para crear un nuevo perro
-});
-
-router.get('/temperaments', async (req, res) => {
-  // Implementar lógica para obtener todos los temperamentos
-});
+// Configurar los routers
+// Ejemplo: router.use('/auth', authRouter);
+router.use('/', dogs);
+router.use('/', temperaments);
+router.use('/', breeds);
 
 module.exports = router;
